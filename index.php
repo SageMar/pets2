@@ -22,6 +22,15 @@ $f3->route('GET /', function () {
 
 });
 
+$f3->route('GET /order', function () {
+    // add a views for the page
+    // first create a template
+    $view = new Template();
+    //direct views to that template
+    echo $view->render('views/pet-order.html');
+
+});
+
 // Run fat-free
 $f3->run();
 

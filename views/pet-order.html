@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Order a Pet</title>
+</head>
+<body>
+    <h1>Order a Pet</h1>
+    <form action="#" method="post" class="form-horizontal">
+
+        <!-- get pet type -->
+        <div class="form-group">
+            <label for="type" class="col-sm-4 control-label">What type of pet would you like to order?</label>
+            <div class="col-sm-4"><input class="form-control" type="text"
+                                         name="type" id="type" ></div>
+        </div>
+        <br>
+
+        <!-- get color -->
+        <div class="form-group">
+            <label for = "color" class="col-sm-4 control-label">Select a Color</label>
+            <select name="color" id="color">
+                <option value="brown">Brown</option>
+                <option value="purple">Purple</option>
+                <option value="black">Black</option>
+                <option value="yellow">Yello</option>
+            </select>
+        </div>
+        <br>
+
+        <!-- submit button -->
+        <div class="col-xs-3 ">
+            <button class="btn btn-primary" type="submit">Place Order</button>
+        </div>
+    </form>
+
+</body>
+</html>
