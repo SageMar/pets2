@@ -29,19 +29,19 @@
             // var_dump($_POST);
             $pet = $_POST['type'];
             $color = $_POST['color'];
+            $type = $_POST['typeOfPet'];
 
             // validate
-            if (!isset($pet) && !isset($color)) {
+            if (!isset($pet) && !isset($color) && !isset($type)) {
                 // if we don't have BOTH picked
                 echo "Please check you have entered your chosen pet and color.";
-            } else {
-                // if both ARE set
+            } else if ($type == "RoboticPet"){
+                $pet = new RoboticPet();
                 $f3->set('SESSION.pet', $pet);
-                $f3->set('SESSION.color', $color);
-
-                // show summary of the order
-                $f3->reroute("summary");
-                }
+            } else if ($type == "StuffedPet"){
+                $pet = new StuffedPet();
+                $f3->set('SESSION.pet', $pet);
+            }
         }
         // add a views for the page
         // first create a template
