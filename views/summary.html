@@ -8,7 +8,24 @@
     <title>Order a Pet</title>
 </head>
 <body>
-<h1>Thank you for ordering a {{ @SESSION.color }} {{ @SESSION.pet }}!</h1>
+<h1>Thank you for ordering a {{ @SESSION.pet->getColor() }} {{ @SESSION.pet->getAnimal() }}!</h1>
+<!-- print one thing for robotic pet and one for stuffed -->
+<check if="{{ @SESSION.pet instanceof \RoboticPet }}">
+        <div class="robotic-pet">
+            <p>You chose a {{ @SESSION.pet->getSize() }} robotic {{ @SESSION.pet->getAnimal() }} with these accesories:</p>
+            <ul>
+                <repeat group="{{ @SESSION.pet->getAccessories() }}" value="{{ @accessory }}">
+                    <li>{{ @accessory }}</li>
+                </repeat>
+            </ul>
+        </div>
+</check>
+<check if = "{{ @SESSION.pet instanceof \StuffedPet }}">
+        <div class="stuffed-pet">
+            <p>You chose a {{ @SESSION.pet->getSize() }} stuffed {{ @SESSION.pet->getAnimal() }}
+            made of {{ @SESSION.pet->getMaterial() }} and filled with {{ @SESSION.pet->getStuffingType() }}</p>
+        </div>
+</check>
 
 
 

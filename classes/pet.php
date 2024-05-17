@@ -14,22 +14,22 @@ class Pet
         $this->_color = $color;
     }
 
-    public function getAnimal(): mixed
+    public function getAnimal(): string
     {
         return $this->_animal;
     }
 
-    public function setAnimal(mixed $animal): void
+    public function setAnimal(string $animal): void
     {
         $this->_animal = $animal;
     }
 
-    public function getColor(): mixed
+    public function getColor(): string
     {
         return $this->_color;
     }
 
-    public function setColor(mixed $color): void
+    public function setColor(string $color): void
     {
         $this->_color = $color;
     }
