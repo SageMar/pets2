@@ -99,7 +99,7 @@ $f3->route('GET|POST /stuffedpet', function($f3){
 
         $f3->get('SESSION.pet')->setSize($sizeStuffed);
         $f3->get('SESSION.pet')->setStuffingType($stuffing);
-        $f3->get('SESSION.pet')->setMateril($material);
+        $f3->get('SESSION.pet')->setMaterial($material);
 
         $f3->reroute("summary");
     }
