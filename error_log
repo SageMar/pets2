@@ -142,3 +142,13 @@
 [16-May-2024 21:33:56 UTC] [GreenRiverDev/328/pets3/index.php:63] 
 [16-May-2024 21:33:56 UTC] [GreenRiverDev/328/pets3/index.php:63] Base->{closure}()
 [16-May-2024 21:33:56 UTC] [GreenRiverDev/328/pets3/index.php:94] Base->run()
+[17-May-2024 01:54:42 UTC] Undefined array key "typeOfPet"
+[17-May-2024 01:54:42 UTC] [GreenRiverDev/328/pets3/index.php:32] 
+[17-May-2024 01:54:42 UTC] [GreenRiverDev/328/pets3/index.php:32] Base->{closure}()
+[17-May-2024 01:54:42 UTC] [GreenRiverDev/328/pets3/index.php:102] Base->run()
+[17-May-2024 01:55:49 UTC] Undefined array key "typeOfPet"
+[17-May-2024 01:55:49 UTC] [GreenRiverDev/328/pets3/index.php:32] 
+[17-May-2024 01:55:49 UTC] [GreenRiverDev/328/pets3/index.php:32] Base->{closure}()
+[17-May-2024 01:55:49 UTC] [GreenRiverDev/328/pets3/index.php:106] Base->run()
+[17-May-2024 02:06:08 UTC] HTTP 404 (GET /roboticpet)
+[17-May-2024 02:06:08 UTC] [GreenRiverDev/328/pets3/index.php:106] Base->run()

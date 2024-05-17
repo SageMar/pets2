@@ -42,12 +42,18 @@
 
                 // show summary of the order
 
+                //if statement to route to proper page.
+
                 if($petType == "RoboticPet") {
                     $f3->reroute("roboticpet");
                 }
-                if($petType == "StuffedPet") {
+                else if($petType == "StuffedPet") {
                     $f3->reroute("stuffedpet");
                 }
+                else {
+                    $f3->reroute("/summary");
+                }
+
                 }
         }
         // add a views for the page
