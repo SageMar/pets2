@@ -27,8 +27,8 @@
         if($_SERVER['REQUEST_METHOD'] == 'POST') {
             // save the variables
             // var_dump($_POST);
-            $pet = $_POST['type'];
             $color = $_POST['color'];
+            $type = $_POST['type'];
             $petType = $_POST['typeOfPet'];
 
             // validate
@@ -36,23 +36,22 @@
                 // if we don't have BOTH picked
                 echo "Please check you have entered your chosen pet and color.";
             } else {
-                // if both ARE set
-                $f3->set('SESSION.pet', $pet);
-                $f3->set('SESSION.color', $color);
-
-                // show summary of the order
-
                 //if statement to route to proper page.
-
                 if($petType == "RoboticPet") {
+                    // create pet object and assign to session
+                    $pet = new RoboticPet($color, $type);
+                    $f3->set('SESSION.pet', $pet);
                     $f3->reroute("roboticpet");
                 }
                 else if($petType == "StuffedPet") {
+                    // create pet type and assign to session
+                    $pet = new StuffedPet($color, $type);
+                    $f3->set('SESSION.pet', $pet);
                     $f3->reroute("stuffedpet");
                 }
-                else {
-                    $f3->reroute("/summary");
-                }
+                // don't reroute to anything else
+                // if the user hasn't selected stuffed or robotic we don't want to
+                // show them the summary
 
                 }
         }
@@ -65,12 +64,19 @@
 
 
 $f3->route('GET|POST /roboticpet', function($f3){
+    var_dump($_SESSION);
+    var_dump($_POST);
 
-    if(isset($_POST['size']) && isset($_POST['accessory']) && isset($_POST['color'])) {
+    if(!empty($_POST['size']) && !empty($_POST['accessory'])) {
         $size = $_POST['size'];
         $accessory = $_POST['accessory'];
-        $color = $_POST['color'];
 
+
+        // set those items to the object
+        $f3->get('SESSION.pet')->setAccessories($accessory);
+        $f3->get('SESSION.pet')->setSize($size);
+
+        $f3->reroute("summary");
     }
 
 
@@ -91,6 +97,11 @@ $f3->route('GET|POST /stuffedpet', function($f3){
         $material = $_POST['material'];
         $stuffing = $_POST['stuffing'];
 
+        $f3->get('SESSION.pet')->setSize($sizeStuffed);
+        $f3->get('SESSION.pet')->setStuffingType($stuffing);
+        $f3->get('SESSION.pet')->setMateril($material);
+
+        $f3->reroute("summary");
     }
 
 
@@ -100,6 +111,7 @@ $f3->route('GET|POST /stuffedpet', function($f3){
 
 
 $f3->route('GET /summary', function($f3){
+    var_dump($f3->get('SESSION'));
     $view = new Template();
     echo $view->render('views/summary.html');
 });
